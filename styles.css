@@ -1,0 +1,720 @@
+/* ================================
+   🌈 Super Pixelate — styles.css final
+   ================================ */
+
+/* Fuente moderna */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+/* ================================
+   🎨 Variables base (tema oscuro por defecto)
+   ================================ */
+:root {
+  --color-bg: #0e0e10;
+  --color-panel-bg: #1a1a1d;
+  --color-preview-bg: #141416;
+  --color-text: #e5e7eb;
+  --color-muted: #9ca3af;
+  --color-border: #2a2a2d;
+  --color-download-bg: #111;
+
+  --color-accent: #639cf1;
+  --color-accent-hover: #65adff;
+  --color-success: #22c55e;
+  --color-danger: #ef4444;
+
+  --radius: 1.2rem;
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+  --transition: 0.2s ease;
+}
+
+/* 🌞 Tema claro */
+body[data-theme="light"] {
+  --color-bg: #f3f4f6;
+  --color-panel-bg: #ffffff;
+  --color-preview-bg: #f9fafb;
+  --color-text: #111827;
+  --color-muted: #4b5563;
+  --color-border: #d1d5db;
+  --color-download-bg: #fff;
+
+  --color-accent: #2563eb;
+  --color-accent-hover: #3b82f6;
+  --color-success: #16a34a;
+  --color-danger: #dc2626;
+}
+
+/* 🕹️ Tema retro GameBoy */
+body[data-theme="retroGameBoy"] {
+  --color-bg: #0f380f;
+  --color-panel-bg: #306230;
+  --color-preview-bg: #205020;
+  --color-text: #9bbc0f;
+  --color-muted: #8bac0f;
+  --color-border: #417041;
+  --color-download-bg: #417041;
+
+  --color-accent: #8bac0f;
+  --color-accent-hover: #9bbc0f;
+  --color-success: #34d399;
+  --color-danger: #fb7185;
+}
+
+/* 🕹️ Tema retro NES */
+body[data-theme="retroNES"] {
+  --color-bg: #1c1c1c;
+  --color-panel-bg: #2e2e2e;
+  --color-preview-bg: #252525;
+  --color-text: #e0e0e0;
+  --color-muted: #b0b0b0;
+  --color-border: #7c7c7c;
+  --color-download-bg: #7c7c7c;
+
+  --color-accent: #c83232;
+  --color-accent-hover: #ff4b4b;
+  --color-success: #22c55e;
+  --color-danger: #ef4444;
+}
+
+
+/* 🕹️ Tema retro SNES */
+body[data-theme="retroSNES"] {
+  --color-bg: #c0c0c0;
+  --color-panel-bg: #a8a8a8;
+  --color-preview-bg: #b0b0b0;
+  --color-text: #2e2e2e;
+  --color-muted: #555555;
+  --color-border: #7c7c7c;
+  --color-download-bg: #7c7c7c;
+
+  --color-accent: #7b5da7;
+  --color-accent-hover: #9b7fc4;
+  --color-success: #22c55e;
+  --color-danger: #ef4444;
+}
+
+/* 🎮 Tema retro GameCube */
+body[data-theme="retroGameCube"] {
+  --color-bg: #0e0632;
+  --color-panel-bg: #1a0e4f;
+  --color-preview-bg: #140a3e;
+  --color-text: #eae7ff;
+  --color-muted: #a69bd1;
+  --color-border: #4a3f88;
+  --color-download-bg: #4a3f88;
+
+  --color-accent: #6c63ff;
+  --color-accent-hover: #857dff;
+  --color-success: #22c55e;
+  --color-danger: #ef4444;
+}
+
+/* 🎮 Tema retro PlayStation */
+body[data-theme="retroPlayStation"] {
+  --color-bg: #2a2a2a;
+  --color-panel-bg: #3a3a3a;
+  --color-preview-bg: #323232;
+  --color-text: #e0e0e0;
+  --color-muted: #a0a0a0;
+  --color-border: #5a5a5a;
+  --color-download-bg: #5a5a5a;
+
+  --color-accent: #00a870;
+  --color-accent-hover: #00c58a;
+  --color-success: #22c55e;
+  --color-danger: #ef4444;
+}
+
+/* 🎮 Tema retro Sega Genesis */
+body[data-theme="retroSegaGenesis"] {
+  --color-bg: #0a0a0a;
+  --color-panel-bg: #1a1a1a;
+  --color-preview-bg: #141414;
+  --color-text: #eaeaea;
+  --color-muted: #aaaaaa;
+  --color-border: #a00000;
+  --color-download-bg: #a00000;
+
+  --color-accent: #ff0000;
+  --color-accent-hover: #ff4d4d;
+  --color-success: #22c55e;
+  --color-danger: #ef4444;
+}
+
+/* 🕹️ Tema cyberpunk */
+body[data-theme="cyberpunk"] {
+  --color-bg: #0a0a0f;
+  --color-panel-bg: #151520;
+  --color-preview-bg: #10101a;
+  --color-text: #f0f0f5;
+  --color-muted: #a0a0b0;
+  --color-border: #2f2f40;
+  --color-download-bg: #2f2f40;
+
+  --color-accent: #ff00c8;
+  --color-accent-hover: #ff40e0;
+  --color-success: #22c55e;
+  --color-danger: #ef4444;
+}
+
+/* 🕹️ Tema NeonTokyo*/
+body[data-theme="neonTokyo"] {
+  --color-bg: #080820;
+  --color-panel-bg: #101040;
+  --color-preview-bg: #0d0d36;
+  --color-text: #eaeaff;
+  --color-muted: #a6a6d2;
+  --color-border: #2e2e70;
+  --color-download-bg: #2e2e70;
+
+  --color-accent: #ff3ecf;
+  --color-accent-hover: #ff70e3;
+  --color-success: #22c55e;
+  --color-danger: #ef4444;
+}
+
+/* 🕹️ Tema MinimalistaClaro*/
+body[data-theme="minimalistaClaro"] {
+  --color-bg: #ffffff;
+  --color-panel-bg: #f5f5f5;
+  --color-preview-bg: #fafafa;
+  --color-text: #1a1a1a;
+  --color-muted: #6e6e6e;
+  --color-border: #cccccc;
+  --color-download-bg: #cccccc;
+
+  --color-accent: #4a90e2;
+  --color-accent-hover: #5aa0f2;
+  --color-success: #22c55e;
+  --color-danger: #ef4444;
+}
+
+/* 🕹️ Tema MinimalistaOscuro*/
+body[data-theme="minimalistaOscuro"] {
+  --color-bg: #1a1a1a;
+  --color-panel-bg: #2a2a2a;
+  --color-preview-bg: #202020;
+  --color-text: #f0f0f0;
+  --color-muted: #999999;
+  --color-border: #3a3a3a;
+  --color-download-bg: #3a3a3a;
+
+  --color-accent: #4a90e2;
+  --color-accent-hover: #5aa0f2;
+  --color-success: #22c55e;
+  --color-danger: #ef4444;
+}
+
+/* 🕹️ Tema glassmorphism*/
+body[data-theme="glassmorphism"] {
+  --color-bg: rgba(8,12,20,0.85);
+  --color-panel-bg: rgba(255,255,255,0.06);
+  --color-preview-bg: rgba(255,255,255,0.04);
+  --color-text: rgba(255,255,255,0.95);
+  --color-muted: rgba(255,255,255,0.65);
+  --color-border: rgba(255,255,255,0.08);
+  --color-download-bg: rgba(255,255,255,0.06);
+
+  --color-accent: #8bd3ff;
+  --color-accent-hover: #bfeaff;
+  --color-success: #22c55e;
+  --color-danger: #ef4444;
+}
+
+/* 🏜️ Tema desierto*/
+body[data-theme="desierto"] {
+  --color-bg: #f7efe1;
+  --color-panel-bg: #efe1c9;
+  --color-preview-bg: #efe6d2;
+  --color-text: #3b2b20;
+  --color-muted: #9b7b60;
+  --color-border: #d1b89e;
+  --color-download-bg: #c98e57;
+
+  --color-accent: #d87a3b;
+  --color-accent-hover: #ff9b5f;
+  --color-success: #22c55e;
+  --color-danger: #ef4444;
+}
+
+/* 💧 Tema oceano*/
+body[data-theme="oceano"] {
+  --color-bg: #012935;
+  --color-panel-bg: #023b49;
+  --color-preview-bg: #013744;
+  --color-text: #dff7fb;
+  --color-muted: #86c5d3;
+  --color-border: #0a5f73;
+  --color-download-bg: #0a5f73;
+
+  --color-accent: #00a6d6;
+  --color-accent-hover: #4fd8ff;
+  --color-success: #22c55e;
+  --color-danger: #ef4444;
+}
+
+/* 🌿 Tema bosque*/
+body[data-theme="bosque"] {
+  --color-bg: #0d1f0d;
+  --color-panel-bg: #163a16;
+  --color-preview-bg: #122d12;
+  --color-text: #e4f2e4;
+  --color-muted: #a5d6a7;
+  --color-border: #2e7d32;
+  --color-download-bg: #2e7d32;
+
+  --color-accent: #43a047;
+  --color-accent-hover: #66bb6a;
+  --color-success: #22c55e;
+  --color-danger: #ef4444;
+}
+
+/* 🏔️ Tema montania*/
+body[data-theme="montania"] {
+  --color-bg: #1e1f24;
+  --color-panel-bg: #2a2b32;
+  --color-preview-bg: #24252c;
+  --color-text: #e8e9ed;
+  --color-muted: #aab0b8;
+  --color-border: #4c566a;
+  --color-download-bg: #4c566a;
+
+  --color-accent: #5e81ac;
+  --color-accent-hover: #81a1c1;
+  --color-success: #22c55e;
+  --color-danger: #ef4444;
+}
+
+/* ================================
+   📐 Base
+   ================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  gap: 2rem;
+  transition: background var(--transition), color var(--transition);
+}
+
+/* ================================
+   📋 Panel de control
+   ================================ */
+.panel {
+  background: var(--color-panel-bg);
+  padding: 2rem;
+  border-radius: var(--radius);
+  width: 100%;
+  min-width: 450px;
+  max-width: 500px;
+  box-shadow: var(--shadow);
+  transition: background var(--transition), color var(--transition);
+}
+
+.panel h1 {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--color-accent);
+}
+
+/* Labels, selects y textos */
+.controls label,
+.download-options label,
+.custom-area label {
+  display: block;
+  font-weight: 600;
+  margin: 1.2rem 0 0.4rem;
+  color: var(--color-text);
+}
+
+.controls select {
+  width: 100%;
+  padding: 0.6rem;
+  background: var(--color-border);
+  border: none;
+  border-radius: 0.5rem;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+
+/* ================================
+   🔹 Input file estilizado
+   ================================ */
+.file-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  background: var(--color-accent);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  transition: background var(--transition), transform 0.15s ease;
+  user-select: none;
+  width: 100%;
+  text-align: center;
+}
+
+.file-label:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-2px);
+}
+
+.file-label:active {
+  transform: scale(0.96);
+}
+
+/* Ocultar el input real */
+.file-label input[type="file"] {
+  display: none;
+}
+
+/* Texto dentro del span */
+.file-label span {
+  pointer-events: none;
+  font-size: 0.95rem;
+  color: #fff;
+}
+
+
+.muted {
+  color: var(--color-muted);
+}
+
+/* ================================
+   🎚️ Sliders modernos
+   ================================ */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  background: var(--color-border);
+  border-radius: 4px;
+  outline: none;
+  margin: 0.8rem 0;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 8px rgba(99, 102, 241, 0.6);
+  margin-top: -6px;
+  transition: transform var(--transition), background var(--transition);
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  background: var(--color-accent-hover);
+  transform: scale(1.1);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 8px rgba(99, 102, 241, 0.6);
+  transition: transform var(--transition), background var(--transition);
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+  background: var(--color-accent-hover);
+  transform: scale(1.1);
+}
+
+/* ================================
+   🔘 Botones y filas
+   ================================ */
+.row {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.row.small {
+  font-size: 0.9rem;
+  align-items: center;
+}
+
+button {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.6rem;
+  background: var(--color-accent);
+  color: #fff;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+}
+
+button:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  background: #555;
+  cursor: not-allowed;
+}
+
+.small-btn {
+  flex: 1;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.85rem;
+}
+
+#reset {
+  background: var(--color-danger);
+}
+
+#reset:hover {
+  background: #f87171;
+}
+
+#download {
+  background: var(--color-success);
+}
+
+#download:hover {
+  background: #4ade80;
+}
+
+.footer {
+  margin-top: 1.5rem;
+}
+
+/* ================================
+   🎨 Área de colores personalizada
+   ================================ */
+.custom-area {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--color-panel-bg);
+  border-radius: 0.8rem;
+  box-shadow: var(--shadow);
+  transition: background var(--transition), color var(--transition);
+}
+
+/* Fila de input y botón añadir */
+.custom-area .row {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.custom-area input[type="color"]#newColor {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 0; /* cuadrado */
+  cursor: pointer;
+  padding: 0;
+  transition: background var(--transition), border var(--transition);
+}
+
+/* Lista de colores */
+.color-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: all var(--transition);
+}
+
+/* Cada color-item */
+.color-item {
+  display: flex;
+  align-items: center;
+  background: var(--color-preview-bg);
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.6rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  transition: background var(--transition), color var(--transition),
+              transform var(--transition), box-shadow var(--transition);
+}
+
+.color-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.color-sample {
+  width: 36px;
+  height: 36px;
+  border-radius: 0.4rem;
+  border: 2px solid #ffffff33;
+  margin-right: 0.8rem;
+  flex-shrink: 0;
+  transition: background var(--transition), border var(--transition);
+}
+
+.color-code {
+  font-family: monospace;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-right: auto;
+  transition: color var(--transition);
+}
+
+.color-actions {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.color-actions button {
+  padding: 0.3rem 0.6rem;
+  font-size: 0.85rem;
+  border-radius: 0.5rem;
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.color-actions button:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-1px);
+}
+
+.color-actions button.danger {
+  background: var(--color-danger);
+}
+
+.color-actions button.danger:hover {
+  background: #f87171;
+}
+
+/* ================================
+   📁 Opciones de descarga
+   ================================ */
+.download-options {
+  background: var(--color-download-bg);
+  padding: 1rem;
+  border-radius: 0.8rem;
+  margin-top: 1.5rem;
+  transition: background var(--transition), color var(--transition);
+}
+
+.download-options label {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  color: var(--color-text);
+  transition: color var(--transition);
+}
+
+/* ================================
+   💡 Hint
+   ================================ */
+.hint {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  text-align: center;
+  margin-top: 1rem;
+  line-height: 1.4;
+  transition: color var(--transition);
+}
+
+/* ================================
+   🖼️ Vista previa
+   ================================ */
+.preview {
+  background: var(--color-preview-bg);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: background var(--transition), color var(--transition);
+}
+
+.preview .small {
+  font-size: 1rem;
+  color: var(--color-muted);
+  margin-bottom: 0.8rem;
+  transition: color var(--transition);
+}
+
+canvas {
+  background: var(--color-border);
+  border: 2px solid var(--color-border);
+  border-radius: 0.8rem;
+  max-width: 100%;
+  transition: border var(--transition), background var(--transition);
+}
+
+/* ================================
+   🌗 Botón cambio de tema
+   ================================ */
+#themeToggle {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: var(--color-border);
+  color: var(--color-text);
+  border: 2px solid var(--color-accent);
+  border-radius: 0.8rem;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition), transform 0.15s ease;
+}
+
+#themeToggle:hover {
+  background: var(--color-accent);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+#themeToggle:active {
+  transform: scale(0.96);
+}
+
+/* ================================
+   📱 Responsive
+   ================================ */
+@media (min-width: 1080px) {
+  body {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .panel {
+    max-width: 360px;
+    position: sticky;
+    top: 2rem;
+  }
+
+  .preview {
+    max-width: 640px;
+  }
+}

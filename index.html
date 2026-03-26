@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Super Pixelate — Generador</title>
+    <link rel="icon" href="super-pixelate.png" type="image/png">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="panel">
+    <h1>Super-Pixelate (cliente)</h1>
+    <div class="controls">
+      <label for="file" class="file-label">
+        <span>Subir imagen</span>
+        <input id="file" type="file" accept="image/*">
+      </label>
+      <label for="block">Bloque / tamaño de píxel <span id="blockVal">16</span></label>
+      <input id="block" type="range" min="1" max="128" value="16">
+      <div class="row">
+        <button id="minus5">-5</button>
+        <button id="minus1">-1</button>
+        <button id="plus1">+1</button>
+        <button id="plus5">+5</button>
+      </div>
+      <div class="row small">
+        <div>Preajustes:</div>
+        <button id="presetSmall">8x8</button>
+        <button id="presetMedium">16x16</button>
+        <button id="presetLarge">32x32</button>
+      </div>
+
+      <label for="colors">Cantidad de colores (paleta) <span id="colorsVal" class="muted">8</span></label>
+      <input id="colors" type="range" min="2" max="512" value="8">
+      <div class="row">
+        <button id="cminus10" class="small-btn">-10</button>
+        <button id="cminus5" class="small-btn">-5</button>
+        <button id="cminus1" class="small-btn">-1</button>
+        <button id="cplus1" class="small-btn">+1</button>
+        <button id="cplus5" class="small-btn">+5</button>
+        <button id="cplus10" class="small-btn">+10</button>
+      </div>
+            <div class="row small">
+              <button id="cmin" class="small-btn">Min</button>
+              <button id="cpresetSmall" class="small-btn">8x8</button>
+              <button id="cpresetMedium" class="small-btn">16x16</button>
+              <button id="cpresetLarge" class="small-btn">32x32</button>
+              <button id="cmax" class="small-btn">Max</button>
+            </div>
+
+      <label for="mode">Modo de color</label>
+      <select id="mode">
+        <option value="avg">Promedio por bloque → paleta</option>
+        <option value="sample">Muestreo de píxeles (más fiel)</option>
+      </select>
+
+      <label for="filter">Filtro retro (post-proceso)</label>
+      <select id="filter">
+        <option value="none">Sin filtro</option>
+        <option value="gameboy">Game Boy (verde)</option>
+        <option value="nes">NES (rojo-naranja)</option>
+        <option value="cga">CGA (cian-magenta)</option>
+        <option value="mono">Monocromo gris</option>
+        <option value="custom">Personalizado...</option>
+      </select>
+      <div id="customArea" class="custom-area" style="display: none;">
+        <div class="row">
+          <input id="newColor" type="color" style="flex:1">
+          <button id="addColor" class="small-btn">+ Añadir color</button>
+        </div>
+        <div class="color-list" id="colorList"></div>
+      </div>
+
+      <div class="download-options">
+        <label>Opciones de descarga</label>
+        <div class="row small">
+          <label><input type="radio" name="downloadMode" value="pixel" checked> Tamaño pixel art</label>
+          <label><input type="radio" name="downloadMode" value="original"> Tamaño original</label>
+        </div>
+      </div>
+
+      <div class="row footer">
+        <button id="process">Procesar</button>
+        <button id="download" disabled>Descargar PNG</button>
+        <button id="reset">Reset</button>
+      </div>
+      <button id="themeToggle">Tema</button>
+    </div>
+  </div>
+
+  <div class="preview">
+    <div class="small">Previsualización</div>
+    <canvas id="out" width="640" height="360"></canvas>
+    <canvas id="hidden" style="display:none"></canvas>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/theme.js"></script>
+</body>
+</html>
